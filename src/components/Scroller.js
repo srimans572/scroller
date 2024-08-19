@@ -7,19 +7,26 @@ const containerStyle = {
   display: "flex",
   flexDirection: "column",
   height: "100vh",
+  width:'100%',
   overflowY: "scroll",
   scrollSnapType: "y mandatory",
-  padding: "10px",
   boxSizing: "border-box",
+  scrollBehavior: "smooth",
+  padding: "0px",
+  margin: "0px",
+  alignItems:'center',
 };
+
+
 
 const cardContainerStyle = {
   display: "flex",
   flexDirection: "column",
-  width: "100%",
-  height: "100vh", // Each card takes up full viewport height
+  height: "100vh", // Ensure each card takes up full viewport height
   scrollSnapAlign: "start",
 };
+
+
 
 const loadingStyle = {
   display: "flex",
@@ -54,14 +61,15 @@ const QuestionScroller = ({ setStreak, setXP, currentSet }) => {
 
   const handleScroll = () => {
     if (isFetching) return; // Prevent scroll event during fetching
-
+  
     const container = containerRef.current;
     if (!container) return;
-
-    const newIndex = Math.floor(container.scrollTop / container.clientHeight);
+  
+    const newIndex = Math.floor(container.scrollTop / (container.clientHeight - 200)); // Adjust for padding
     setCurrentIndex(newIndex);
+  
     const threeBeforeEnd = questions.length - 3;
-
+  
     // Start fetching when three cards away from the end
     if (newIndex >= threeBeforeEnd && !isFetching) {
       setIsFetching(true);
@@ -69,6 +77,7 @@ const QuestionScroller = ({ setStreak, setXP, currentSet }) => {
       fetchQuestions();
     }
   };
+  
 
   const fetchQuestions = async () => {
     const options = {
@@ -125,7 +134,7 @@ const QuestionScroller = ({ setStreak, setXP, currentSet }) => {
   };
 
   return (
-    <div>
+    <div style={{width:'100%', justifyContent:'center', alignItems:'center', display:'flex'}}>
       {questions.length > 1 ? (
         <div ref={containerRef} style={containerStyle} onScroll={handleScroll}>
           {questions.map((item, index) => (

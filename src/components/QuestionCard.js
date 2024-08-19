@@ -201,6 +201,8 @@ const QuestionCard = ({
                     ? selectedChoice === answer
                       ? "palegreen"
                       : "salmon"
+                    : isAnswered && choice === answer
+                    ? "palegreen"
                     : cardStyle.buttonColor,
                 opacity: isAnswered && selectedChoice !== choice ? 0.6 : 1,
                 color: cardStyle.textColor,
@@ -211,6 +213,7 @@ const QuestionCard = ({
             </p>
           ))}
         </div>
+
         {showPlus10 && <div className="plus10-animation">+10</div>}
       </div>
     </div>
