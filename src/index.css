@@ -1,0 +1,130 @@
+*{
+    font-family: "Poppins";
+    margin: 0px;
+}
+p{
+    font-family: "Poppins";
+}
+
+.sale {
+	position: relative;
+  top:-75px;
+  right: -150px;
+	background: orange;
+  box-shadow: 0px 0px 56px 1px orange;
+	color: white;
+	height: 2.5rem;
+	width: 2.5rem;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 2.5rem;
+	transform: rotate(-10deg);
+	animation: beat .4s ease infinite alternate;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	&:before,
+	&:after {
+		content:"";
+		position: absolute;
+		background: inherit;
+		height: inherit;
+		width: inherit;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		transform: rotate(30deg);
+	}
+	&:after {
+		transform: rotate(60deg);
+	}
+}
+
+@keyframes beat {
+	from {	transform: rotate(-20deg) scale(1); }
+	to {	transform: rotate(-20deg) scale(1.1); }
+}
+
+.plus10-animation {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    animation: fadeout 1.5s ease-out;
+  }
+  
+  @keyframes fadeout {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  *::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari */
+  }
+
+  /* HTML: <div class="loader"></div> */
+.loader {
+  margin-top: 50px;
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  border: 8px solid orange;
+  animation:
+    l20-1 0.8s infinite linear alternate,
+    l20-2 1.6s infinite linear;
+}
+@keyframes l20-1{
+   0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+   12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+   25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+   50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+   100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+@keyframes l20-2{ 
+  0%    {transform:scaleY(1)  rotate(0deg)}
+  49.99%{transform:scaleY(1)  rotate(135deg)}
+  50%   {transform:scaleY(-1) rotate(0deg)}
+  100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+button{
+  transition: 0.3s;
+}
+button:hover{
+  transform: translateY(-3px);
+  box-shadow: 0px 0px 4px 1px orange;
+}
+.cardButton{
+  transition: 0.3s;
+}
+.cardButton:hover{
+  transform: translateY(2px);
+}
