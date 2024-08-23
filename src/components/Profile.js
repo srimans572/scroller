@@ -3,11 +3,13 @@ import NewPrompt from "./NewPrompt";
 import { getDoc, onSnapshot, doc } from "firebase/firestore";
 import { db } from "./firebase/Firebase";
 import Plans from "./Plans";
+import { useNavigate } from "react-router-dom";
 
 const MyProfile = ({mobileDimension}) => {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [planType, setPlanType] = useState();
+  const navigate = useNavigate()
   useEffect(() => {
     try {
       const document = onSnapshot(
@@ -80,6 +82,7 @@ const MyProfile = ({mobileDimension}) => {
               {email && email}
             </p>
           </div>
+          <div style={{flexDirection:'row', display:'flex'}}>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <label style={{}}>Current Plan</label>
             <p
@@ -95,6 +98,27 @@ const MyProfile = ({mobileDimension}) => {
             >
               {planType && planType}
             </p>
+          </div>
+          <div style={{width:'25%'}}></div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <label style={{}}>Your Favorites</label>
+            <button
+              style={{
+                fontSize: "18px",
+                padding: "5px 25px",
+                background: "orange",
+                borderRadius: "100px",
+                textAlign: "center",
+                marginTop: "10px",
+                width: "fit-content",
+                outline: "none"
+                
+              }}
+              onClick={async () => navigate("/saved")}
+            >
+              Saved
+            </button>
+          </div>
           </div>
         </div>
       </div>
