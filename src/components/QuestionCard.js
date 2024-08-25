@@ -195,6 +195,7 @@ const QuestionCard = ({
                 padding: "10px",
                 marginBottom: "10px",
                 borderRadius: "10px",
+                fontSize:choice.length>60&&"10px",
                 cursor: isAnswered ? "not-allowed" : "pointer",
                 backgroundColor:
                   selectedChoice === choice

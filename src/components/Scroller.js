@@ -165,6 +165,23 @@ const QuestionScroller = ({ setStreak, setXP, currentSet }) => {
           <div className="loader"></div>
         </div>
       )}
+       {isLoading && (
+        <p
+          style={{
+            position: "absolute",
+            textAlign: "center",
+            left: "50%",
+            top:"3.5%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "white",
+            padding: "5px 10px",
+            borderRadius: "100px",
+            
+          }}
+        >
+          Loading More Questions...
+        </p>
+      )}
     </div>
   );
 };
