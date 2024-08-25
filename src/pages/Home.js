@@ -73,11 +73,13 @@ function Home() {
           }}
         >
           {currentSet ? (
-            <Scroller
-              setStreak={setStreak}
-              setXP={setXP}
-              currentSet={currentSet}
-            />
+            <div style={{ width: '100%', height: '100vh', justifyContent:'center', alignItems:'center', display:'flex'}}>
+              <Scroller
+                setStreak={setStreak}
+                setXP={setXP}
+                currentSet={currentSet}
+              />
+            </div>
           ) : (sets && sets.length) > 0 && !currentSet ? (
             <div
               style={{
